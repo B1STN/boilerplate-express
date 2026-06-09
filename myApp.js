@@ -1,4 +1,3 @@
-app.get('/json', function(req, res) {
 require('dotenv').config();
 
 let express = require('express');
