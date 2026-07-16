@@ -1,5 +1,8 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(function(req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip);
@@ -37,10 +40,17 @@ app.get("/:word/echo", function(req, res) {
   });
 });
 
-// NUEVO RETO: Query Parameters
+// GET /name?first=John&last=Doe
 app.get("/name", function(req, res) {
   res.json({
     name: req.query.first + " " + req.query.last
+  });
+});
+
+// POST /name
+app.post("/name", function(req, res) {
+  res.json({
+    name: req.body.first + " " + req.body.last
   });
 });
 
