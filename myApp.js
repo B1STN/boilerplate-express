@@ -37,4 +37,11 @@ app.get("/:word/echo", function(req, res) {
   });
 });
 
+// NUEVO RETO: Query Parameters
+app.get("/name", function(req, res) {
+  res.json({
+    name: req.query.first + " " + req.query.last
+  });
+});
+
 module.exports = app;
