@@ -40,14 +40,12 @@ app.get("/:word/echo", function(req, res) {
   });
 });
 
-// GET /name?first=John&last=Doe
 app.get("/name", function(req, res) {
   res.json({
     name: req.query.first + " " + req.query.last
   });
 });
 
-// POST /name
 app.post("/name", function(req, res) {
   res.json({
     name: req.body.first + " " + req.body.last
